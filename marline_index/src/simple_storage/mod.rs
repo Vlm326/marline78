@@ -18,6 +18,12 @@ impl<K, S: Sketch> LinearSearchIndex<K, S> {
     }
 }
 
+impl<K, S: Sketch> Default for LinearSearchIndex<K, S> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<K, S: Sketch> SketchIndexApi<K, S> for LinearSearchIndex<K, S>
 where
     K: Clone + Eq + Hash + Send + Sync,
